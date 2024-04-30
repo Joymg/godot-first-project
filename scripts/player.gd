@@ -22,15 +22,22 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	
+	animated_sprite.flip_h =  true if direction < 0 else false
+	
+	
+	
 	if is_on_floor():
 		if direction:
-			velocity.x = direction * SPEED
 			animated_sprite.play("run")
-			animated_sprite.flip_h =  true if direction < 0 else false
+			
 		else:
 			animated_sprite.play("idle")
-			velocity.x = move_toward(velocity.x, 0, SPEED)
 	else: 
 		animated_sprite.play("jump")
+		
+	if direction:
+		velocity.x = direction * SPEED	
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

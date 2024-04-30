@@ -106,7 +106,8 @@ script = ExtResource("1_v2t25")
 sprite_frames = SubResource("SpriteFrames_cdyta")
 animation = &"coin idle"
 autoplay = "coin idle"
-frame_progress = 0.937012
+frame = 3
+frame_progress = 0.98994
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yr6qb")
